@@ -74,7 +74,7 @@ class ShopHome extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 24),
-              _buildSectionHeader('Categories', (){}),
+              _buildSectionHeader('Categories', () {}),
               const SizedBox(height: 16),
               SizedBox(
                 height: 115,
@@ -83,15 +83,132 @@ class ShopHome extends StatelessWidget {
                   physics: const BouncingScrollPhysics(),
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   children: [
-                    _buildCategoryCircle('Fashion', Icons.checkroom, const Color(0xFFE0F2FE)),
-                    _buildCategoryCircle('Electronics', Icons.phone_iphone, const Color(0xFFE0E7FF)),
-                    _buildCategoryCircle('Sports', Icons.sports_basketball, const Color(0xFFFFEDD5)),
-                    _buildCategoryCircle('Furniture', Icons.chair, const Color(0xFFFEF3C7)),
-                    _buildCategoryCircle('Beauty', Icons.face, const Color(0xFFFCE7F3)),
+                    _buildCategoryCircle(
+                      'Fashion',
+                      Icons.checkroom,
+                      const Color(0xFFE0F2FE),
+                    ),
+                    _buildCategoryCircle(
+                      'Electronics',
+                      Icons.phone_iphone,
+                      const Color(0xFFE0E7FF),
+                    ),
+                    _buildCategoryCircle(
+                      'Sports',
+                      Icons.sports_basketball,
+                      const Color(0xFFFFEDD5),
+                    ),
+                    _buildCategoryCircle(
+                      'Furniture',
+                      Icons.chair,
+                      const Color(0xFFFEF3C7),
+                    ),
+                    _buildCategoryCircle(
+                      'Beauty',
+                      Icons.face,
+                      const Color(0xFFFCE7F3),
+                    ),
                   ],
-                )
-              )
+                ),
+              ),
 
+              const SizedBox(height: 16),
+
+              Padding(
+                padding: const EdgeInsetsGeometry.symmetric(horizontal: 16),
+                child: Row(
+                  children: [
+                    const Text(
+                      "Flash Sale",
+                      style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.black,
+                      ),
+                    ),
+                    const SizedBox(width: 10),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 5,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.black,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.access_time,
+                            color: Colors.amber,
+                            size: 14,
+                          ),
+                          SizedBox(width: 4),
+                          Text(
+                            "03 : 25 : 45",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 12,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    const Spacer(),
+                    GestureDetector(
+                      onTap: () {},
+                      child: const Row(
+                        children: [
+                          Text(
+                            'See All ',
+                            style: TextStyle(
+                              color: Color(0xFF9CA3AF),
+                              fontSize: 14,
+                            ),
+                          ),
+                          Icon(
+                            Icons.arrow_forward_ios,
+                            size: 12,
+                            color: Color(0xFF9CA3AF),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 16),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Expanded(
+                      child: _buildProductCard(
+                        title: 'Hoodie For Men',
+                        price: '\$19.00',
+                        oldprice: '\$39.00',
+                        discount: '-40%',
+                        imagePath: 'lib/assets/product1.png',
+                        cardbg: const Color(0xFFFFF1F2),
+                      ),
+                    ),
+                    const SizedBox(width: 16),
+                    Expanded(
+                      child: _buildProductCard(
+                        title: 'Phone 12',
+                        price: '\$799.00',
+                        oldprice: '\$999.00',
+                        discount: '-15%',
+                        imagePath: 'lib/assets/product2.png',
+                        cardbg: const Color(0xFFEEF2FF),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
@@ -178,27 +295,120 @@ class ShopHome extends StatelessWidget {
   }
 }
 
-
 Widget _buildCategoryCircle(String label, IconData icon, Color color) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 18.0),
-      child: Column(
-        children: [
-          Container(
-            width: 68,
-            height: 68,
-            decoration: BoxDecoration(
-              color: color,
-              shape: BoxShape.circle,
-            ),
-            child: Icon(icon, color: Colors.black87, size: 28),
+  return Padding(
+    padding: const EdgeInsets.only(right: 18.0),
+    child: Column(
+      children: [
+        Container(
+          width: 68,
+          height: 68,
+          decoration: BoxDecoration(color: color, shape: BoxShape.circle),
+          child: Icon(icon, color: Colors.black87, size: 28),
+        ),
+        const SizedBox(height: 8),
+        Text(
+          label,
+          style: const TextStyle(
+            fontSize: 13,
+            fontWeight: FontWeight.w600,
+            color: Color(0xFF374151),
           ),
-          const SizedBox(height: 8),
+        ),
+      ],
+    ),
+  );
+}
+
+Widget _buildProductCard({
+  required String title,
+  required String price,
+  required String oldprice,
+  required String discount,
+  required String imagePath,
+  required Color cardbg,
+}) {
+  return Column(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Container(
+        height: 190,
+        width: double.infinity,
+        decoration: BoxDecoration(
+          color: cardbg,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        child: Stack(
+          children: [
+            Positioned.fill(
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.asset(imagePath, fit: BoxFit.cover),
+              ),
+            ),
+
+            Positioned(
+              top: 12,
+              left: 12,
+              child: Container(
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 5),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF97316),
+                  borderRadius: BorderRadius.circular(6),
+                ),
+                child: Text(
+                  discount,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 11,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+            ),
+            const Positioned(
+              top: 12,
+              right: 12,
+              child: Icon(
+                Icons.favorite_border,
+                color: Color(0xFF9CA3AF),
+                size: 22,
+              ),
+            ),
+          ],
+        ),
+      ),
+      const SizedBox(height: 10),
+      Text(
+        title,
+        style: const TextStyle(
+          fontWeight: FontWeight.w700,
+          fontSize: 15,
+          color: Color(0xFF1F2937),
+        ),
+      ),
+      const SizedBox(height: 4),
+      Row(
+        children: [
           Text(
-            label,
-            style: const TextStyle(fontSize: 13, fontWeight: FontWeight.w600, color: Color(0xFF374151)),
+            price,
+            style: const TextStyle(
+              color: Colors.black,
+              fontWeight: FontWeight.w900,
+              fontSize: 15,
+            ),
+          ),
+          const SizedBox(width: 6),
+          Text(
+            oldprice,
+            style: const TextStyle(
+              color: Color(0xFF9CA3AF),
+              decoration: TextDecoration.lineThrough,
+              fontSize: 12,
+            ),
           ),
         ],
       ),
-    );
-  }
+    ],
+  );
+}
