@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
+import '../../widgets/homewidget/brandwidget.dart';
+import "../../widgets/homewidget/recommentation.dart";
 class ShopHome extends StatelessWidget {
   const ShopHome({super.key});
 
@@ -266,7 +267,21 @@ class ShopHome extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(height: 24),
+              const SizedBox(height: 16),
+              buildtopbrandsection(),
+
+              const SizedBox(height: 16),
+
+              buildrecommendationsection(),
+
+
+
+
+              
+              // 2. Recommended Grid Section Injection
+         
+              // 💡 IMPORTANT: Spacing fix allocation prevents navigation overlap crashing!
+              const SizedBox(height: 32),
             ],
           ),
         ),
@@ -413,6 +428,9 @@ Widget _buildCategoryCircle(String label, IconData icon, Color color) {
     ),
   );
 }
+
+
+
 
 Widget _buildProductCard({
   required String title,
