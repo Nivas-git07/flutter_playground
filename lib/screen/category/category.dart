@@ -131,7 +131,7 @@ class Categoryscreen extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: bottomNaigation(context),
+      bottomNavigationBar: bottomNaigation(context,1),
     );
   }
 }

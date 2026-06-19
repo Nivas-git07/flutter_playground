@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import "../screen/home/home.dart";
 import "../screen/category/category.dart";
 
-Widget bottomNaigation(BuildContext context) {
+Widget bottomNaigation(BuildContext context, int currentIndex) {
   return BottomNavigationBar(
     type: BottomNavigationBarType.fixed,
     backgroundColor: Colors.white,
@@ -18,7 +18,7 @@ Widget bottomNaigation(BuildContext context) {
       fontSize: 11,
       fontWeight: FontWeight.w500,
     ),
-    currentIndex: 0,
+    currentIndex: currentIndex,
     onTap: (index) {
       if (index == 0) {
         Navigator.push(
