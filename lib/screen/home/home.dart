@@ -37,6 +37,24 @@ final List<Map<String, dynamic>> recommendedProducts = [
     'imagePath': 'lib/assets/product1.png',
     'cardbg': const Color(0xFFFFF1F2),
   },
+    {
+    'title': 'Mechnical Keyboard',
+    'price': '\$130.00',
+    'oldprice': '\$39.00',
+    'rating': '4.2',
+    'imagePath': 'lib/assets/product5.png',
+    'cardbg': const Color(0xFFFFF1F2),
+  },
+    {
+    'title': 'Nike show',
+    'price': '\$449.00',
+    'oldprice': '\$39.00',
+    'rating': '4.3',
+    'imagePath': 'lib/assets/product6.png',
+    'cardbg': const Color(0xFFFFF1F2),
+  },
+
+
    
 
 ];
