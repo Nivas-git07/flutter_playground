@@ -1,5 +1,8 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../../widgets/categorywidget/promobanner.dart';
+import '../../widgets/categorywidget/categorycart.dart';
+import '../../layout/bottomnavigation.dart';
 class Categoryscreen extends StatelessWidget {
   const Categoryscreen({super.key});
   @override
@@ -77,19 +80,58 @@ class Categoryscreen extends StatelessWidget {
           const SizedBox(width: 16),
         ],
       ),
-      body: 
-      SafeArea(child: SingleChildScrollView(
-        physics: BouncingScrollPhysics(),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const SizedBox(height: 16),
-            buildPromoBanner(),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          physics: BouncingScrollPhysics(),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height: 16),
+              buildPromoBanner(),
 
+              const SizedBox(height: 16),
 
-          ],
+              const Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: Text(
+                  "Categories",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+              ),
+
+              const SizedBox(height: 16),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                child: GridView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 3,
+                    crossAxisSpacing: 14,
+                    mainAxisSpacing: 16,
+                    childAspectRatio: 0.82,
+                  ),
+                  itemCount: categories.length,
+                  itemBuilder: (context, index) {
+                    final category = categories[index];
+                    return buildCategoryCard(
+                      name: category['name'],
+                      icon: category['icon'],
+                      circleColor: category['color'],
+                    );
+                  },
+                ),
+              ),
+              const SizedBox(height: 26)
+            ],
+          ),
         ),
-      )),
+      ),
+      bottomNavigationBar: bottomNaigation(context),
     );
   }
 }
