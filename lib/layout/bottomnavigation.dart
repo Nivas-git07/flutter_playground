@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import "../screen/home/home.dart";
 import "../screen/category/category.dart";
 import "../screen/myorder/order.dart";
+import "../screen/profile/profile.dart";
 import "../screen/wishlist/wishlist.dart";
 Widget bottomNaigation(BuildContext context, int currentIndex) {
   return BottomNavigationBar(
@@ -46,8 +47,13 @@ Widget bottomNaigation(BuildContext context, int currentIndex) {
           context,
           MaterialPageRoute(builder: (context) => const OrdersEmptyScreen()),
         );
+      };
+         if (index == 4) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => const Profilescreen()),
+        );
       }
-      ;
     },
     items: const [
       BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: "Home"),
