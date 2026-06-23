@@ -166,7 +166,7 @@ class CategoryDetailScreen extends StatelessWidget {
   Widget _buildPromoHeroBanner() {
     return Container(
       width: double.infinity,
-      height: 140,
+      height: 150,
       decoration: BoxDecoration(
         color: const Color(0xFFF5F3FF),
         borderRadius: BorderRadius.circular(20),
@@ -188,7 +188,7 @@ class CategoryDetailScreen extends StatelessWidget {
                   "Explore our new collection\ntrending this season.",
                   style: TextStyle(fontSize: 12, color: Color(0xFF6B7280), height: 1.3),
                 ),
-                const SizedBox(height: 12),
+                const SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
@@ -211,7 +211,7 @@ class CategoryDetailScreen extends StatelessWidget {
             child: ClipRRect(
               borderRadius: const BorderRadius.only(topRight: Radius.circular(20), bottomRight: Radius.circular(20)),
               child: Image.asset(
-                'lib/assets/fashion_banner.png', // Wardrobe/clothes asset
+                'lib/assets/fashion_sale.png', // Wardrobe/clothes asset
                 fit: BoxFit.contain,
                 errorBuilder: (context, error, stackTrace) => const SizedBox(width: 120),
               ),
