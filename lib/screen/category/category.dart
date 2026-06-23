@@ -102,6 +102,7 @@ class Categoryscreen extends StatelessWidget {
                       name: category['name'],
                       icon: category['icon'],
                       circleColor: category['color'],
+                      context: context
                     );
                   },
                 ),

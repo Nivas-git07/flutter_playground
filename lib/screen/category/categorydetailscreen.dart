@@ -37,7 +37,7 @@ class CategoryDetailScreen extends StatelessWidget {
         'discount': '-30%',
         'rating': '4.7',
         'reviews': '98',
-        'image': 'lib/assets/product2.png',
+        'image': 'lib/assets/product5.png',
       },
       {
         'title': 'Knitted Sweater',
