@@ -3,10 +3,9 @@ import 'package:flutter/material.dart';
 import '../../widgets/homewidget/brandwidget.dart';
 import "../../widgets/homewidget/recommentation.dart";
 import "../../layout/bottomnavigation.dart";
-
+import "../../screen/flashsale/flashsale.dart";
 
 final List<Map<String, dynamic>> recommendedProducts = [
- 
   {
     'title': 'Phone 12',
     'price': '\$799.00',
@@ -23,7 +22,7 @@ final List<Map<String, dynamic>> recommendedProducts = [
     'imagePath': 'lib/assets/product4.png',
     'cardbg': const Color.fromARGB(255, 234, 159, 84),
   },
-   {
+  {
     'title': 'Watch',
     'price': '\$149.00',
     'oldprice': '\$999.00',
@@ -31,7 +30,7 @@ final List<Map<String, dynamic>> recommendedProducts = [
     'imagePath': 'lib/assets/product3.png',
     'cardbg': const Color.fromARGB(255, 224, 225, 227),
   },
-   {
+  {
     'title': 'Hoodie For Men',
     'price': '\$19.00',
     'oldprice': '\$39.00',
@@ -39,7 +38,7 @@ final List<Map<String, dynamic>> recommendedProducts = [
     'imagePath': 'lib/assets/product1.png',
     'cardbg': const Color(0xFFFFF1F2),
   },
-    {
+  {
     'title': 'Mechnical Keyboard',
     'price': '\$130.00',
     'oldprice': '\$39.00',
@@ -47,7 +46,7 @@ final List<Map<String, dynamic>> recommendedProducts = [
     'imagePath': 'lib/assets/product5.png',
     'cardbg': const Color(0xFFFFF1F2),
   },
-    {
+  {
     'title': 'Nike show',
     'price': '\$449.00',
     'oldprice': '\$39.00',
@@ -55,10 +54,6 @@ final List<Map<String, dynamic>> recommendedProducts = [
     'imagePath': 'lib/assets/product6.png',
     'cardbg': const Color(0xFFFFF1F2),
   },
-
-
-   
-
 ];
 
 class ShopHome extends StatelessWidget {
@@ -69,42 +64,45 @@ class ShopHome extends StatelessWidget {
     return Scaffold(
       backgroundColor: const Color(0xFFFBFBFB),
       appBar: PreferredSize(
-      preferredSize: const Size.fromHeight(70.0), // Customize height as needed
-      child: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              const Text(
-                "The goat fashion",
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.black,
-                  letterSpacing: -0.5,
+        preferredSize: const Size.fromHeight(
+          70.0,
+        ), // Customize height as needed
+        child: SafeArea(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  "The goat fashion",
+                  style: TextStyle(
+                    fontSize: 28,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                    letterSpacing: -0.5,
+                  ),
                 ),
-              ),
-              Row(
-                children: [
-                  _buildNotificationBadge(Icons.shopping_cart_outlined, '3'),
-                  const SizedBox(width: 12),
-                  _buildNotificationBadge(Icons.notifications_none_outlined, '5'),
-                ],
-              ),
-            ],
+                Row(
+                  children: [
+                    _buildNotificationBadge(Icons.shopping_cart_outlined, '3'),
+                    const SizedBox(width: 12),
+                    _buildNotificationBadge(
+                      Icons.notifications_none_outlined,
+                      '5',
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),
-    ),
       body: SafeArea(
         child: SingleChildScrollView(
           physics: const BouncingScrollPhysics(),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-           
-               
               const SizedBox(height: 20),
 
               Padding(
@@ -218,7 +216,14 @@ class ShopHome extends StatelessWidget {
 
                     const Spacer(),
                     GestureDetector(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const FlashSaleScreen(),
+                          ),
+                        );
+                      },
                       child: const Row(
                         children: [
                           Text(
@@ -340,7 +345,7 @@ class ShopHome extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: bottomNaigation(context,0)
+      bottomNavigationBar: bottomNaigation(context, 0),
     );
   }
 

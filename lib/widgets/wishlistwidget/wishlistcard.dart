@@ -107,11 +107,11 @@ Widget buildWishlistCard(Map<String, dynamic> item) {
                         constraints: const BoxConstraints(),
                         onPressed: () {},
                       ),
-                      const SizedBox(width: 14),
+                      const SizedBox(width: 12),
                       ElevatedButton.icon(
                         onPressed: () {},
                         icon: const Icon(Icons.shopping_bag_outlined, size: 14, color: Colors.white),
-                        label: const Text("Add to Bag", style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white)),
+                        label: const Text("purchase", style: TextStyle(fontSize: 12, fontWeight: FontWeight.bold, color: Colors.white)),
                         style: ElevatedButton.styleFrom(
                           backgroundColor: const Color(0xFF0F172A),
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),

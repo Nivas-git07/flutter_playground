@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import "../../layout/appbar.dart";
 import '../../layout/bottomnavigation.dart';
+import '../../screen/wishlist/wishlist.dart';
 
 class OrdersEmptyScreen extends StatelessWidget {
   const OrdersEmptyScreen({super.key});
@@ -150,7 +151,14 @@ class OrdersEmptyScreen extends StatelessWidget {
                       size: 14,
                       color: Colors.grey,
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const Wishlistscreen(),
+                        ),
+                      );
+                    },
                   ),
                 ),
               ),

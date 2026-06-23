@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../screen/notification/notification.dart';
 
 PreferredSizeWidget appbarnavigation(BuildContext context, String titletext) {
   return AppBar(
@@ -10,7 +11,7 @@ PreferredSizeWidget appbarnavigation(BuildContext context, String titletext) {
     ),
     title: Text(
       titletext,
-      style: TextStyle(
+      style: const TextStyle(
         color: Colors.black,
         fontWeight: FontWeight.bold,
         fontSize: 20,
@@ -18,47 +19,36 @@ PreferredSizeWidget appbarnavigation(BuildContext context, String titletext) {
     ),
     centerTitle: true,
     actions: [
-      _buildNotificationBadge(Icons.shopping_cart_outlined, '3'),
-      const SizedBox(width: 12),
-      _buildNotificationBadge(Icons.notifications_none_outlined, '5'),
-      const SizedBox(width: 16),
-    ],
-  );
-}
+      // 🛒 Cart Button with Native Badge
+      Badge(
+        label: const Text('3', style: TextStyle(fontSize: 9, fontWeight: FontWeight.bold)),
+        backgroundColor: const Color(0xFFEF4444),
+        offset: const Offset(-4, 4),
+        child: IconButton(
+          onPressed: () {
+            print("Cart clicked");
+          },
+          icon: const Icon(Icons.shopping_cart_outlined, color: Colors.black),
+        ),
+      ),
+      const SizedBox(width: 4),
 
-Widget _buildNotificationBadge(IconData icon, String count) {
-  return Stack(
-    alignment: Alignment.center,
-    children: [
-      Container(
-        width: 40,
-        height: 40,
-        decoration: BoxDecoration(
-          color: Colors.white,
-          shape: BoxShape.circle,
-          border: Border.all(color: const Color(0xFFF3F4F6)),
-        ),
-        child: Icon(icon, color: Colors.black, size: 20),
-      ),
-      Positioned(
-        top: 2,
-        right: 2,
-        child: Container(
-          padding: const EdgeInsets.all(4),
-          decoration: const BoxDecoration(
-            color: Color(0xFFEF4444),
-            shape: BoxShape.circle,
-          ),
-          child: Text(
-            count,
-            style: const TextStyle(
-              color: Colors.white,
-              fontSize: 8,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+      // 🔔 Notification Button with Native Badge
+      Badge(
+        label: const Text('5', style: TextStyle(fontSize: 9, fontWeight: FontWeight.bold)),
+        backgroundColor: const Color(0xFFEF4444),
+        offset: const Offset(-4, 4),
+        child: IconButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => const Notificationscreen()),
+            );
+          },
+          icon: const Icon(Icons.notifications_none_outlined, color: Colors.black),
         ),
       ),
+      const SizedBox(width: 12),
     ],
   );
 }

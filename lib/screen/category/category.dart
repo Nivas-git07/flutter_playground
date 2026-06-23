@@ -1,9 +1,10 @@
 import 'package:flutter/foundation.dart';
+import '../../layout/bottomnavigation.dart';
+import "../../layout/appbar.dart";
 import 'package:flutter/material.dart';
 import '../../widgets/categorywidget/promobanner.dart';
 import '../../widgets/categorywidget/categorycart.dart';
-import '../../layout/bottomnavigation.dart';
-import "../../layout/appbar.dart";
+
 class Categoryscreen extends StatelessWidget {
   const Categoryscreen({super.key});
   @override
